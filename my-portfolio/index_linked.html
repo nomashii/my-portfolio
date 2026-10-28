@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ゲーム制作・デザイン・映像などの作品を紹介するポートフォリオ">
+  <title>PORTFOLIO | Creative Works</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <a href="#home" class="logo">S. PORTFOLIO<span>®</span></a>
+    <nav>
+      <a href="#works">WORKS</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  
+<main>
+  <!-- 01：自己紹介 -->
+  <section class="intro" id="home">
+    <div class="intro-copy">
+      <span class="eyebrow">GAME DEVELOPER / CREATIVE</span>
+      <p class="intro-kicker">Ideas, play, and creation.</p>
+
+      <h1>
+        遊びを、<br>
+        <span>カタチにする。</span>
+      </h1>
+
+      <p class="intro-description">
+        ゲーム制作を中心に、デザインやWeb開発にも取り組んでいます。
+        アイデアを形にするだけでなく、使う人・遊ぶ人にとって
+        分かりやすく、楽しい体験を生み出すことを目指しています。
+      </p>
+
+      <div class="intro-actions">
+        <a href="#games" class="primary-button">ゲーム作品を見る ↘</a>
+        <a href="#about" class="text-link">ABOUT ME →</a>
+      </div>
+    </div>
+
+    <div class="intro-visual">
+      <div class="intro-image-frame">
+        <img src="images/colorinpallet-main.png"
+             alt="制作したゲームのメイン画面">
+        <span class="image-sticker">LET'S PLAY!</span>
+      </div>
+      <span class="intro-deco deco-star">✳</span>
+      <span class="intro-deco deco-circle"></span>
+      <p class="intro-caption">MY CREATIVE WORLD / 2026</p>
+    </div>
+  </section>
+
+  <!-- 02：ゲーム作品 -->
+  <section class="portfolio-section games-section" id="games">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">01 / GAME DEVELOPMENT</span>
+        <h2>Game Projects<span class="blue-dot">!</span></h2>
+      </div>
+      <p>考えて、実装して、遊べる形へ。</p>
+    </div>
+
+    <!-- 作品1 -->
+    <article class="game-project">
+      <div class="game-image">
+        <img src="image/IMG_0788.png"
+             alt="ColorinPalletのゲーム画面">
+        <span class="project-number">PROJECT 01</span>
+      </div>
+
+      <div class="game-details">
+        <div class="project-tags">
+          <span>UNITY</span>
+          <span>C#</span>
+          <span>TEAM DEVELOPMENT</span>
+        </div>
+
+        <h3>ColorinPallet</h3>
+        <p class="game-subtitle">塗って楽しく人助け！</p>
+
+        <p class="project-description">
+          色を失った世界を、色を塗ることで変えていく
+          2Dパズルアクションゲーム。
+          5人チームで制作し、タイトル画面やステージ操作、
+          塗りの処理、エフェクトなどを担当しました。
+        </p>
+
+        <div class="project-facts">
+          <div><span>ROLE</span><strong>実装・画面制作</strong></div>
+          <div><span>TEAM</span><strong>5人</strong></div>
+          <div><span>GENRE</span><strong>2Dパズルアクション</strong></div>
+        </div>
+
+        
+        <a href="colorinpallet.html" class="project-detail-button">
+        制作内容を詳しく見る <span>↗</span>
+        </a>
+
+      </div>
+    </article>
+
+    <!-- 作品2：今後のゲーム用テンプレート -->
+    <article class="game-project">
+      <div class="game-image">
+        <img src="images/game-project-02.png"
+             alt="2つ目のゲーム作品の画面">
+        <span class="project-number">PROJECT 02</span>
+      </div>
+
+      <div class="game-details">
+        <div class="project-tags">
+          <span>GAME</span>
+          <span>PROTOTYPE</span>
+        </div>
+
+        <h3>Another Game Project</h3>
+        <p class="game-subtitle">アイデアを、体験に。</p>
+
+        <p class="project-description">
+          2つ目のゲーム作品を紹介するための枠です。
+          ゲームの目的、特徴、制作時に工夫した点などを
+          自分の作品に合わせて記入します。
+        </p>
+
+        <div class="project-facts">
+          <div><span>ROLE</span><strong>担当内容を記載</strong></div>
+          <div><span>TOOLS</span><strong>使用技術を記載</strong></div>
+        </div>
+
+        <button class="project-detail-button"
+        data-title="ColorinPallet"
+        data-type="GAME DEVELOPMENT"
+        data-description="5人チームで約2か月かけて制作した2Dパズルアクションゲーム。Unity・C#を使用し、プレイヤーの色変更やインク残量のUIなどを担当しました。"
+        data-image="images/colorinpallet-main.png">
+        制作内容を詳しく見る <span>↗</span>
+        </button>
+      </div>
+    </article>
+  </section>
+
+  <!-- 03：Web・個人開発 -->
+  <section class="portfolio-section web-section" id="web">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">02 / WEB & PERSONAL PROJECTS</span>
+        <h2>Web Projects<span class="blue-dot">.</span></h2>
+      </div>
+      <p>自分で考え、設計し、作る。</p>
+    </div>
+
+    <article class="web-project">
+      <div class="web-image">
+        <img src="images/digital-museum.png"
+             alt="My Digital Museumの画面">
+      </div>
+
+      <div class="web-details">
+        <span class="eyebrow">PERSONAL DEVELOPMENT / 01</span>
+        <h3>My Digital Museum</h3>
+        <p>
+          遊んだゲームを記録・整理するための個人用デジタルアーカイブ。
+          登録・編集・検索などの機能を実装し、
+          自分にとって使いやすい情報整理の仕組みを開発しています。
+        </p>
+        <div class="project-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JAVASCRIPT</span>
+        </div>
+        <p class="status-note">STATUS / 開発中</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 04：デザイン系作品 -->
+  <section class="portfolio-section design-section" id="design">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">03 / OTHER CREATIONS</span>
+        <h2>Design & Visuals<span class="blue-dot">.</span></h2>
+      </div>
+      <p>ゲーム制作以外の表現にも挑戦。</p>
+    </div>
+
+    <div class="design-grid">
+      <article class="design-card">
+        <a href="noshi-design.html" class="design-card-link" aria-label="80周年記念のし紙デザインの詳細を見る">
+          <img src="images/noshi-design.png"
+               alt="ジグソーパズルをモチーフにした80周年記念のし紙デザイン">
+          <div>
+            <span class="eyebrow">GRAPHIC DESIGN</span>
+            <h3>80周年記念のし紙デザイン</h3>
+            <p>ジグソーパズルをモチーフに、6つのテーマカラーとアイコンを組み合わせた記念デザイン。</p>
+            <span class="project-detail-button">制作内容を詳しく見る <span>↗</span></span>
+          </div>
+        </a>
+      </article>
+
+      <article class="design-card">
+        <img src="images/projection-mapping.jpg"
+             alt="映像を使ったプロジェクションマッピング作品">
+        <div>
+          <span class="eyebrow">VIDEO / EXPERIMENT</span>
+          <h3>Visual Experiment</h3>
+          <p>映像と立体物を組み合わせた表現の実験。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 05：プロフィール -->
+  <section class="portfolio-section about-section" id="about">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">04 / ABOUT ME</span>
+        <h2>About Me<span class="blue-dot">!</span></h2>
+      </div>
+    </div>
+
+    <div class="about-layout">
+      <div class="profile-photo">
+        <img src="images/profile.jpg" alt="プロフィール画像">
+      </div>
+
+      <div class="about-text">
+        <span class="eyebrow">CREATOR / GAME DEVELOPMENT</span>
+        <h3>作ることを通じて、<br>新しい体験を届けたい。</h3>
+
+        <p>
+          ゲーム制作を中心に、プログラミングやデザインなど、
+          自分のアイデアを形にする活動をしています。
+          見た目の面白さだけでなく、操作の分かりやすさや
+          使う人の視点も意識して制作しています。
+        </p>
+
+        <h4>TOOLS & SKILLS</h4>
+        <div class="skill-list">
+          <span>Unity / C#</span>
+          <span>HTML / CSS</span>
+          <span>JavaScript</span>
+          <span>Illustrator</span>
+          <span>Photoshop</span>
+          <span>映像制作</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <span class="eyebrow">THANK YOU FOR VISITING!</span>
+    <h2>Let's make<br>something fun.</h2>
+    <p>ご覧いただき、ありがとうございます。</p>
+  </section>
+
+  <!-- 作品詳細モーダル -->
+  <dialog id="project-modal" class="project-modal">
+    <button class="modal-close" aria-label="閉じる">×</button>
+    <span class="eyebrow" id="modal-type"></span>
+    <h2 id="modal-title"></h2>
+    <img id="modal-image" src="" alt="">
+    <p id="modal-description"></p>
+    <span class="modal-hint">ESC または × で閉じる</span>
+  </dialog>
+</main>
+
+
+  <footer class="footer">
+    <a href="#home" class="logo">S. PORTFOLIO<span>®</span></a>
+    <p>© 2026 CREATIVE PORTFOLIO</p>
+    <a href="#home">BACK TO TOP ↑</a>
+  </footer>
+
+  <dialog id="work-modal" class="work-modal">
+    <button class="modal-close" aria-label="閉じる">×</button>
+    <span class="eyebrow" id="modal-type"></span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-description"></p>
+    <span class="modal-hint">ESC または × で閉じる</span>
+  </dialog>
+
+</body>
+</html>
