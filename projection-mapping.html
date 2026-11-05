@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="生成AIとプロジェクションマッピングを活用した地域連携展示の制作・設営活動を紹介します。">
+  <title>生成AIとプロジェクションマッピング | S. PORTFOLIO</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .pm-page {
+      --pm-ink: #f3f4ff;
+      --pm-muted: #b9bfd8;
+      --pm-line: rgba(205, 213, 255, .17);
+      --pm-cyan: #72e7f2;
+      --pm-violet: #a99aff;
+      color: var(--pm-ink);
+      background:
+        radial-gradient(ellipse at 80% 10%, rgba(105, 73, 190, .24), transparent 38%),
+        radial-gradient(ellipse at 12% 42%, rgba(40, 165, 190, .12), transparent 35%),
+        #101321;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .pm-page * { box-sizing: border-box; }
+    .pm-wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .pm-hero { padding: clamp(56px, 9vw, 110px) 0 68px; }
+    .pm-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; color: var(--pm-cyan);
+      font-size: .78rem; font-weight: 800; letter-spacing: .15em;
+    }
+    .pm-eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    .pm-hero h1 {
+      margin: 0 0 24px; max-width: 900px;
+      font-size: clamp(2.1rem, 5.5vw, 4.4rem); line-height: 1.22; letter-spacing: .015em;
+    }
+    .pm-hero h1 span { color: var(--pm-cyan); }
+    .pm-lead { max-width: 760px; color: var(--pm-muted); font-size: clamp(1rem, 2vw, 1.18rem); line-height: 1.95; }
+    .pm-visual {
+      position: relative; margin: 34px 0 0; padding: 12px;
+      border: 1px solid var(--pm-line); border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.015));
+      box-shadow: 0 22px 70px rgba(0,0,0,.28);
+    }
+    .pm-visual img { display:block; width:100%; height:auto; min-height:180px; object-fit:cover; border-radius:15px; }
+    .pm-visual figcaption { padding: 13px 8px 3px; color: var(--pm-muted); font-size: .84rem; }
+    .pm-image-placeholder {
+      min-height: 300px; display:flex; align-items:center; justify-content:center; text-align:center;
+      padding: 30px; border-radius:15px; color:var(--pm-muted);
+      background:
+        linear-gradient(135deg, rgba(114,231,242,.09), transparent 45%),
+        repeating-linear-gradient(0deg, transparent 0 39px, rgba(255,255,255,.035) 40px),
+        repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,.035) 40px),
+        #171b2b;
+    }
+    .pm-image-placeholder strong { display:block; color:var(--pm-cyan); margin-bottom:8px; font-size:1.1rem; }
+    .pm-section { padding: clamp(42px, 6vw, 76px) 0; border-top:1px solid var(--pm-line); }
+    .pm-section h2 { margin:0 0 20px; font-size:clamp(1.5rem, 3vw, 2.3rem); line-height:1.35; }
+    .pm-section p { max-width:820px; line-height:2; color:var(--pm-muted); }
+    .pm-section p + p { margin-top:14px; }
+    .pm-number { display:block; margin-bottom:13px; color:var(--pm-cyan); font-size:.78rem; font-weight:900; letter-spacing:.15em; }
+    .pm-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:30px; }
+    .pm-card { padding:24px; border:1px solid var(--pm-line); border-radius:18px; background:rgba(255,255,255,.035); }
+    .pm-card .pm-card-number { color:var(--pm-violet); font-size:.78rem; font-weight:900; letter-spacing:.12em; }
+    .pm-card h3 { margin:12px 0 10px; font-size:1.08rem; }
+    .pm-card p { margin:0; font-size:.94rem; line-height:1.85; }
+    .pm-process { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:28px; }
+    .pm-step { padding:20px 18px; border-top:2px solid var(--pm-cyan); background:rgba(255,255,255,.035); border-radius:0 0 14px 14px; }
+    .pm-step span { color:var(--pm-cyan); font-size:.76rem; font-weight:900; letter-spacing:.12em; }
+    .pm-step h3 { margin:10px 0; font-size:1rem; }
+    .pm-step p { margin:0; font-size:.9rem; line-height:1.8; }
+    .pm-learning {
+      margin-top:26px; padding:26px clamp(20px,4vw,36px); border:1px solid rgba(114,231,242,.3);
+      border-radius:20px; background:linear-gradient(120deg,rgba(114,231,242,.08),rgba(169,154,255,.06));
+    }
+    .pm-learning strong { display:block; color:var(--pm-cyan); margin-bottom:12px; letter-spacing:.04em; }
+    .pm-learning p { margin:0; color:var(--pm-ink); }
+    .pm-meta { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:26px; }
+    .pm-meta div { padding:17px 19px; border:1px solid var(--pm-line); border-radius:14px; background:rgba(255,255,255,.035); }
+    .pm-meta dt { margin-bottom:6px; color:var(--pm-muted); font-size:.78rem; }
+    .pm-meta dd { margin:0; font-weight:700; line-height:1.6; }
+    .pm-source { display:inline-flex; margin-top:22px; color:var(--pm-cyan); text-decoration:none; font-weight:700; border-bottom:1px solid currentColor; padding-bottom:4px; }
+    .pm-source:hover { opacity:.75; }
+    .pm-back { display:inline-flex; align-items:center; gap:10px; margin:16px 0 64px; padding:13px 19px; border:1px solid var(--pm-line); border-radius:999px; color:var(--pm-ink); text-decoration:none; font-weight:700; transition:transform .2s,background .2s; }
+    .pm-back:hover { transform:translateY(-2px); background:rgba(255,255,255,.06); }
+    @media(max-width:760px) {
+      .pm-grid { grid-template-columns:1fr; }
+      .pm-process { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .pm-meta { grid-template-columns:1fr; }
+      .pm-wrap { width:min(100% - 28px,1120px); }
+      .pm-image-placeholder { min-height:210px; }
+    }
+    @media(max-width:440px) { .pm-process { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main class="pm-page">
+    <header class="pm-hero pm-wrap">
+      <span class="pm-eyebrow">AI / VIDEO / COMMUNITY PROJECT</span>
+      <h1>生成AIと<br><span>プロジェクションマッピング</span>による<br>地域連携展示</h1>
+      <p class="pm-lead">
+        地域の写真に生成AIを活用して新たな動きや要素を加え、地域の魅力を映像として発信する活動に参加しました。
+        映像制作だけでなく、展示の設営にも携わり、来場者に見やすい展示空間づくりを意識しました。
+      </p>
+      <figure class="pm-visual">
+        <!-- 画像を用意できたら src を実際のファイル名に変更してください -->
+        <div class="pm-image-placeholder">
+          <div><strong>PROJECT VISUAL</strong>展示写真・プロジェクション映像の画像をここに配置</div>
+        </div>
+        <figcaption>地域の写真をもとに生成AIで映像表現を制作した展示</figcaption>
+      </figure>
+    </header>
+
+    <section class="pm-section pm-wrap">
+      <span class="pm-number">01 / PROJECT</span>
+      <h2>地域の写真に、新しい表現を加える</h2>
+      <p>
+        北海道科学大学北方地域社会研究所（RINC）の協力のもと、「前田まちのお宝写真コンテスト」に関連した地域連携展示に参加しました。
+        地域の方々が撮影した写真を素材として、生成AIを活用し、写真の雰囲気を生かした映像表現を考えました。
+      </p>
+      <div class="pm-grid">
+        <article class="pm-card">
+          <span class="pm-card-number">FOCUS 01</span>
+          <h3>地域の写真を活用</h3>
+          <p>地域に残る写真をもとに、元の風景や写真が持つ雰囲気を大切にして映像化しました。</p>
+        </article>
+        <article class="pm-card">
+          <span class="pm-card-number">FOCUS 02</span>
+          <h3>生成AIによる映像制作</h3>
+          <p>Adobe Fireflyを使用し、Geminiなども活用しながら、映像生成に用いる指示文を考えました。</p>
+        </article>
+        <article class="pm-card">
+          <span class="pm-card-number">FOCUS 03</span>
+          <h3>展示として届ける</h3>
+          <p>制作した映像を会場で投影し、来場者が地域の写真に新しい視点で触れられる展示を目指しました。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="pm-section pm-wrap">
+      <span class="pm-number">02 / AI VIDEO PRODUCTION</span>
+      <h2>生成結果を比較し、表現を調整する</h2>
+      <p>
+        写真をAdobe Fireflyに取り込み、Geminiなどを活用してプロンプトを検討しながら複数の映像を生成しました。
+        生成結果には、動きが不自然なものや、変化が少なく映像としての印象が弱いものもありました。
+        そのため、結果を見比べながら作り直し、元の写真の魅力を損なわずに新しい演出が加わっているかを意識して選定しました。
+        写真にキツネを登場させた映像では、元の風景と新たな要素のバランスが取れた表現になりました。
+      </p>
+      <div class="pm-process">
+        <article class="pm-step"><span>STEP 01</span><h3>写真を選ぶ</h3><p>地域の写真を映像制作の素材として使用。</p></article>
+        <article class="pm-step"><span>STEP 02</span><h3>指示文を考える</h3><p>Geminiなどを活用し、AIに伝える表現を検討。</p></article>
+        <article class="pm-step"><span>STEP 03</span><h3>映像を生成・比較</h3><p>動きの自然さや変化の見え方を確認。</p></article>
+        <article class="pm-step"><span>STEP 04</span><h3>再生成・選定</h3><p>写真の雰囲気と追加演出のバランスを見て選定。</p></article>
+      </div>
+    </section>
+
+    <section class="pm-section pm-wrap">
+      <span class="pm-number">03 / EXHIBITION SETUP</span>
+      <h2>来場者が見やすい展示空間へ</h2>
+      <p>
+        展示当日は、機材の運搬や設営にも参加しました。
+        友人と協力し、展示物や映像が互いに重なって見えにくくならないよう、配置を調整しました。
+        制作した映像を展示として届けるためには、作品そのものだけでなく、会場での見え方や来場者の視点も大切だと感じました。
+      </p>
+      <!-- 設営写真を追加する場合は、ここに画像を挿入できます -->
+    </section>
+
+    <section class="pm-section pm-wrap">
+      <span class="pm-number">04 / LEARNING</span>
+      <h2>活動を通じて学んだこと</h2>
+      <div class="pm-learning">
+        <strong>TECHNOLOGY × LOCAL COMMUNITY</strong>
+        <p>
+          生成AIは、既存の写真に動きや新たな要素を加えることで、元の写真とは異なる魅力や物語性を生み出せることを実感しました。
+          また、新しい技術を地域の写真と組み合わせることで、地域の思い出を新たな形で発信できることを学びました。
+          映像制作と展示設営の両方に関わったことで、表現をつくる工程から、見る人に届ける環境づくりまで意識する経験になりました。
+        </p>
+      </div>
+      <dl class="pm-meta">
+        <div><dt>実施日</dt><dd>2026年1月10日</dd></div>
+        <div><dt>展示場所</dt><dd>JR手稲駅構内「あいくる」</dd></div>
+        <div><dt>関連活動</dt><dd>前田まちのお宝写真コンテスト</dd></div>
+        <div><dt>協力</dt><dd>北海道科学大学北方地域社会研究所（RINC）</dd></div>
+        <div><dt>使用ツール</dt><dd>Adobe Firefly、Geminiなど</dd></div>
+        <div><dt>担当内容</dt><dd>AI映像制作、機材運搬・展示設営</dd></div>
+      </dl>
+      <a class="pm-source" href="https://www.hus.ac.jp/news/detail/190a31b101a7394ce56bda3808bd4c8a4dee784e-20525/" target="_blank" rel="noopener noreferrer">大学公式サイトの関連記事を見る ↗</a>
+    </section>
+
+    <footer class="pm-wrap">
+      <a class="pm-back" href="index.html#design">← ポートフォリオのトップへ戻る</a>
+    </footer>
+  </main>
+</body>
+</html>
